@@ -8,8 +8,7 @@ import element.IElement;
 public class DataOnTheGap implements DataGenerator {
 
 	// nextLong Returns a pseudorandom, uniformly distributed value between the
-	// given
-	// least value (inclusive) and bound (exclusive). -> +1
+	// given least value (inclusive) and bound (exclusive). -> +1
 	private final int ONE = 1;
 	private int minFactor;
 	private int maxFactor;
@@ -21,6 +20,7 @@ public class DataOnTheGap implements DataGenerator {
 		rand = ThreadLocalRandom.current();
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public IElement[] getArrayWithData(int size) {
 		int min, max;

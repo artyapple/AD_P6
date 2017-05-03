@@ -11,7 +11,7 @@ import pivot.PivotRandom;
 import sort.QuickSort;
 import sort.SortingAlgorithm;
 
-public class ComplexityAnalysis {
+public class ComplexityAnalysisLabor5 {
 
 	private List<Element<String>[]> dataSetsRand = new ArrayList<>();
 	private List<Element<String>[]> dataSetsSorted = new ArrayList<>();
@@ -23,7 +23,7 @@ public class ComplexityAnalysis {
 	private int tn[] = new int[ns.length*3];
 
 
-	public ComplexityAnalysis() {
+	public ComplexityAnalysisLabor5() {
 		pl.add(new PivotFirst());
 		pl.add(new PivotMedian());
 		pl.add(new PivotRandom());
