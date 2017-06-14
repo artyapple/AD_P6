@@ -12,10 +12,12 @@ import pivot.IPivotElement;
 import pivot.PivotFirst;
 import pivot.PivotMedian;
 import pivot.PivotRandom;
+import sort.BucketSort;
+import sort.CountingSort;
 import sort.QuickSort;
 import sort.SortingAlgorithm;
 
-public class QuickSortTest {
+public class SortTest {
 
 	private IPivotElement p;
 	private Element<String>[] array;
@@ -25,11 +27,11 @@ public class QuickSortTest {
 	@SuppressWarnings("unchecked")
 	@Before
 	public void before() {
-		for(long[] set : QuickSortTestData.KEY_SETS){
+		for(long[] set : SortTestData.KEY_SETS){
 			int i = 0;
 			Element<String>[] testSet = new Element[set.length];
 			for (long key : set) {
-				testSet[i] = new Element<String>(key, QuickSortTestData.TEST_ELEMENT_DATA);
+				testSet[i] = new Element<String>(key, SortTestData.TEST_ELEMENT_DATA);
 				i++;
 			}
 			testData.add(testSet);
@@ -65,12 +67,25 @@ public class QuickSortTest {
 		alg.sort(array);
 		assertNull(array);
 	}
+	
+	@Test
+	public void bucketSortInsertion() {
+		alg = new BucketSort();
+		executeTests();
+	}
+	
+//	@Test
+//	public void bucketSortCounting() {
+//		SortingAlgorithm helper = new CountingSort();
+//		alg = new BucketSort(helper);
+//		executeTests();
+//	}
 
-	private void executeTests(){
-		for(int i=0;i< QuickSortTestData.TEST_TOTAL;i++){
+	private void executeTests() {
+		for(int i=0;i< SortTestData.TEST_TOTAL;i++){
 			array = testData.get(i);
 			alg.sort(array);
-			testList(QuickSortTestData.SORTED_KEY_SETS[i]);
+			testList(SortTestData.SORTED_KEY_SETS[i]);
 		}
 	}
 	
